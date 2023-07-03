@@ -9,6 +9,7 @@ type GoogleAnalyticsProps = {
   debugMode?: boolean;
   defaultConsent?: "granted" | "denied";
   nonce?: string;
+  additionalConfig?: object;
 };
 
 type WithPageView = GoogleAnalyticsProps & {
@@ -29,6 +30,7 @@ export function GoogleAnalytics({
   defaultConsent = "granted",
   trackPageViews,
   nonce,
+  additionalConfig = {}
 }: WithPageView | WithIgnoreHashChange): JSX.Element | null {
   const _gaMeasurementId =
     process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? gaMeasurementId;
@@ -64,6 +66,7 @@ export function GoogleAnalytics({
             gtag('config', '${_gaMeasurementId}', {
               page_path: window.location.pathname,
               ${debugMode ? `debug_mode: ${debugMode},` : ""}
+              ...additionalConfig
             });
           `}
       </Script>
