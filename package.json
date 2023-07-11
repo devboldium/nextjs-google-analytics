@@ -8,7 +8,7 @@
     "lint": "eslint src --fix",
     "build": "del-cli dist && tsc",
     "watch": "tsc-watch --onSuccess \"yalc push\"",
-    "postinstall": "npm run build",
+    "prepublish": "npm run build",
     "test": "jest",
     "semantic-release": "semantic-release"
   },
