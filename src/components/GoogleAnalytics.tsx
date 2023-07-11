@@ -66,7 +66,7 @@ export function GoogleAnalytics({
             gtag('config', '${_gaMeasurementId}', {
               page_path: window.location.pathname,
               ${debugMode ? `debug_mode: ${debugMode},` : ""}
-              ...additionalConfig
+              ${additionalConfig && JSON.stringify(additionalConfig)}
             });
           `}
       </Script>
