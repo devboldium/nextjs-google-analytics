@@ -64,8 +64,10 @@ export function GoogleAnalytics({
             });` : ``
             }
             gtag('config', '${_gaMeasurementId}', {
+              canary: 'yes',
               page_path: window.location.pathname,
               ${debugMode ? `debug_mode: ${debugMode},` : ""}
+              ${additionalConfig && JSON.stringify(additionalConfig)}
             });
           `}
       </Script>
