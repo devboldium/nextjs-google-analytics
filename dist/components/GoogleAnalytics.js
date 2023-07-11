@@ -32,7 +32,7 @@ function GoogleAnalytics({ debugMode = false, gaMeasurementId, gtagUrl = "https:
             gtag('config', '${_gaMeasurementId}', {
               page_path: window.location.pathname,
               ${debugMode ? `debug_mode: ${debugMode},` : ""}
-              ...additionalConfig
+              ${additionalConfig && JSON.stringify(additionalConfig)}
             });
           `)));
 }
