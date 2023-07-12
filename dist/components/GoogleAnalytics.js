@@ -5,7 +5,7 @@ const tslib_1 = require("tslib");
 const react_1 = tslib_1.__importDefault(require("react"));
 const script_1 = tslib_1.__importDefault(require("next/script"));
 const hooks_1 = require("../hooks");
-function GoogleAnalytics({ debugMode = false, gaMeasurementId, gtagUrl = "https://www.googletagmanager.com/gtag/js", strategy = "afterInteractive", defaultConsent = "granted", trackPageViews, nonce, userid = false, additionalConfig = {} }) {
+function GoogleAnalytics({ debugMode = false, gaMeasurementId, gtagUrl = "https://www.googletagmanager.com/gtag/js", strategy = "afterInteractive", defaultConsent = "granted", trackPageViews, nonce, userid = false, }) {
     var _a;
     const _gaMeasurementId = (_a = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID) !== null && _a !== void 0 ? _a : gaMeasurementId;
     (0, hooks_1.usePageViews)({
@@ -21,6 +21,7 @@ function GoogleAnalytics({ debugMode = false, gaMeasurementId, gtagUrl = "https:
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(script_1.default, { src: `${gtagUrl}?id=${_gaMeasurementId}`, strategy: strategy }),
         react_1.default.createElement(script_1.default, { id: "nextjs-google-analytics", nonce: nonce }, `
+            // testing, 123...
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());

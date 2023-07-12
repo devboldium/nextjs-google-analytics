@@ -10,7 +10,6 @@ type GoogleAnalyticsProps = {
   defaultConsent?: "granted" | "denied";
   nonce?: string;
   userid?: string | false;
-  additionalConfig?: object;
 };
 
 type WithPageView = GoogleAnalyticsProps & {
@@ -32,7 +31,6 @@ export function GoogleAnalytics({
   trackPageViews,
   nonce,
   userid = false,
-  additionalConfig = {}
 }: WithPageView | WithIgnoreHashChange): JSX.Element | null {
   const _gaMeasurementId =
     process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? gaMeasurementId;
@@ -55,6 +53,7 @@ export function GoogleAnalytics({
       <Script src={`${gtagUrl}?id=${_gaMeasurementId}`} strategy={strategy} />
       <Script id="nextjs-google-analytics" nonce={nonce}>
         {`
+            // testing, 123...
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
