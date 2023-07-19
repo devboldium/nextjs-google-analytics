@@ -31,7 +31,6 @@ function GoogleAnalytics({ debugMode = false, gaMeasurementId, gtagUrl = "https:
               'analytics_storage': 'denied'
             });` : ``}
             gtag('config', '${_gaMeasurementId}', {
-              canary: 'yes',
               page_path: window.location.pathname,
               ${userid ? `user_id: "${userid}",` : ""}
               ${debugMode ? `debug_mode: ${debugMode},` : ""}
