@@ -21,8 +21,9 @@ function pageView({ title, location, path, sendPageView, userId } = {}, measurem
         pageViewOptions.send_page_view = sendPageView;
     }
     if (userId !== undefined) {
-        pageViewOptions.user_id = userId;
+        pageViewOptions.user_id = `${userId}`;
     }
+    console.log(`[next-google-analytics] pageView`, pageViewOptions);
     window.gtag("config", gaMeasurementId, pageViewOptions);
 }
 exports.pageView = pageView;

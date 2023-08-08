@@ -44,8 +44,9 @@ export function pageView(
   }
 
   if (userId !== undefined) {
-    pageViewOptions.user_id = userId;
+    pageViewOptions.user_id = `${userId}`;
   }
 
+  console.log(`[next-google-analytics] pageView`, pageViewOptions)
   window.gtag("config", gaMeasurementId, pageViewOptions);
 }
