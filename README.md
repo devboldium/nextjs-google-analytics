@@ -1,4 +1,6 @@
-# Nextjs Google Analytics
+# Nextjs Google Analytics (FORK)
+
+⚠️ This is a fork of [next-google-analytics](https://github.com/MauricioRobayo/nextjs-google-analytics). It has been modified to better support user_id and other GA features. ⚠️
 
 [![npm version](https://badge.fury.io/js/nextjs-google-analytics.svg)](https://badge.fury.io/js/nextjs-google-analytics)
 [![codecov](https://codecov.io/gh/MauricioRobayo/nextjs-google-analytics/branch/main/graph/badge.svg?token=ywhhMAVgON)](https://codecov.io/gh/MauricioRobayo/nextjs-google-analytics)
