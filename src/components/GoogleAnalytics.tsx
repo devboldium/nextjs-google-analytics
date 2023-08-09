@@ -53,7 +53,6 @@ export function GoogleAnalytics({
       <Script src={`${gtagUrl}?id=${_gaMeasurementId}`} strategy={strategy} />
       <Script id="nextjs-google-analytics" nonce={nonce}>
         {`
-            // testing, 123...
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
