@@ -6,10 +6,11 @@ type PageViewOptions = {
   path?: string;
   sendPageView?: boolean;
   userId?: string;
+  user_properties?: Object;
 };
 
 export function pageView(
-  { title, location, path, sendPageView, userId }: PageViewOptions = {},
+  { title, location, path, sendPageView, userId, user_properties }: PageViewOptions = {},
   measurementId?: string
 ): void {
   const gaMeasurementId =
@@ -25,6 +26,7 @@ export function pageView(
     page_path?: string;
     send_page_view?: boolean;
     user_id?: string;
+    user_properties?: Object;
   } = {};
 
   if (title !== undefined) {
@@ -45,6 +47,10 @@ export function pageView(
 
   if (userId !== undefined) {
     pageViewOptions.user_id = `${userId}`;
+  }
+
+  if(user_properties !== undefined) {
+    pageViewOptions.user_properties = user_properties;
   }
 
   console.log(`[next-google-analytics] pageView`, pageViewOptions)

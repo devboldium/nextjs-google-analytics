@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.pageView = void 0;
-function pageView({ title, location, path, sendPageView, userId } = {}, measurementId) {
+function pageView({ title, location, path, sendPageView, userId, user_properties } = {}, measurementId) {
     var _a;
     const gaMeasurementId = (_a = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID) !== null && _a !== void 0 ? _a : measurementId;
     if (!gaMeasurementId || !window.gtag) {
@@ -22,6 +22,9 @@ function pageView({ title, location, path, sendPageView, userId } = {}, measurem
     }
     if (userId !== undefined) {
         pageViewOptions.user_id = `${userId}`;
+    }
+    if (user_properties !== undefined) {
+        pageViewOptions.user_properties = user_properties;
     }
     console.log(`[next-google-analytics] pageView`, pageViewOptions);
     window.gtag("config", gaMeasurementId, pageViewOptions);
