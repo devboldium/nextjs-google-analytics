@@ -10,6 +10,7 @@ type GoogleAnalyticsProps = {
   defaultConsent?: "granted" | "denied";
   nonce?: string;
   userid?: string | false;
+  user_properties?: Object | false;
 };
 
 type WithPageView = GoogleAnalyticsProps & {
@@ -31,6 +32,7 @@ export function GoogleAnalytics({
   trackPageViews,
   nonce,
   userid = false,
+  user_properties = false
 }: WithPageView | WithIgnoreHashChange): JSX.Element | null {
   const _gaMeasurementId =
     process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? gaMeasurementId;
@@ -66,6 +68,7 @@ export function GoogleAnalytics({
             gtag('config', '${_gaMeasurementId}', {
               page_path: window.location.pathname,
               ${userid ? `user_id: "${userid}",` : ""}
+              ${user_properties ? `user_properties: ${JSON.stringify(user_properties)}` : ``}
               ${debugMode ? `debug_mode: ${debugMode},` : ""}
             });
           `}
