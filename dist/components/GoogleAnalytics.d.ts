@@ -8,6 +8,7 @@ type GoogleAnalyticsProps = {
     defaultConsent?: "granted" | "denied";
     nonce?: string;
     userid?: string | false;
+    user_properties?: Object | false;
 };
 type WithPageView = GoogleAnalyticsProps & {
     trackPageViews?: boolean;
@@ -17,5 +18,5 @@ type WithIgnoreHashChange = GoogleAnalyticsProps & {
         ignoreHashChange: boolean;
     };
 };
-export declare function GoogleAnalytics({ debugMode, gaMeasurementId, gtagUrl, strategy, defaultConsent, trackPageViews, nonce, userid, }: WithPageView | WithIgnoreHashChange): JSX.Element | null;
+export declare function GoogleAnalytics({ debugMode, gaMeasurementId, gtagUrl, strategy, defaultConsent, trackPageViews, nonce, userid, user_properties }: WithPageView | WithIgnoreHashChange): JSX.Element | null;
 export {};

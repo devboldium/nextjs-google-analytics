@@ -68,7 +68,7 @@ export function GoogleAnalytics({
             gtag('config', '${_gaMeasurementId}', {
               page_path: window.location.pathname,
               ${userid ? `user_id: "${userid}",` : ""}
-              ${user_properties ? `user_properties: ${JSON.stringify(user_properties)}` : ``}
+              ${user_properties ? `user_properties: ${user_properties}` : ``}
               ${debugMode ? `debug_mode: ${debugMode},` : ""}
             });
           `}
