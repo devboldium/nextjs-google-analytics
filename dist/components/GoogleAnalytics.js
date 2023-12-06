@@ -26,8 +26,11 @@ function GoogleAnalytics({ debugMode = false, gaMeasurementId, gtagUrl = "https:
             gtag('js', new Date());
             ${defaultConsent === "denied" ?
             `gtag('consent', 'default', {
-              'ad_storage': 'denied',
-              'analytics_storage': 'denied'
+                ad_user_data: "denied",
+                ad_personalization: "denied",
+                ad_storage: "denied",
+                analytics_storage: "denied",
+                wait_for_update: 2000 // milliseconds to wait for update
             });` : ``}
             gtag('config', '${_gaMeasurementId}', {
               page_path: window.location.pathname,
